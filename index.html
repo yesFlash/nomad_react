@@ -8,19 +8,24 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js" ></script>
   <!-- Load Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Your custom script here -->
   <script type="text/babel">
-    // JSX : HTML에서 사용한 문법과 흡사한 문법
+    
     const root = document.getElementById("root")
-    const Title = (
-      <h3 
-        id="title" 
-        onMouseEnter={() => console.log("mouse enter")}
-      >
-        Hello I'm a title
-      </h3>
+
+    // 요소를 Container에 붙이기 위해 함수로 바꾼다
+    // function으로 선언할 경우 JSX를 return 해주면 된다.    
+    function Title() {
+      return (
+        <h3 
+          id="title" 
+          onMouseEnter={() => console.log("mouse enter")}
+        >
+          Hello I'm a title
+        </h3>
       );
-    const Button = (
+    }
+
+    const Button = ()=> (
       <button 
         style={{
           backgroundColor : "yellowgreen"
@@ -31,10 +36,17 @@
       </button>
     );
 
-    // span과 btn 모두를 render하고 싶은 경우
-    const container = React.createElement("div", null, [Title, Button]);
+    // HTML 태그 이름인 것 처럼 적어주면 된다.
+    // 컴포넌트의 첫 글자는 반드시 대문자여야 한다. 
+    // <button/>이라고 적으면 React랑 JSX는 HTML 태그의 button 태그로 간주
+    // 따라서 직접 만든 요소는 대문자로 시작할 것 !!!
+    const Container = ()=> (<div>
+        <Title />
+        <Button />
+      </div>
+    );
 
-    ReactDOM.render(container, root);
+    ReactDOM.render(<Container/>, root);
   </script>
 </html>
 </html>

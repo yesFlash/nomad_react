@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <span>Total clicks : 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    // 버튼 클릭한 횟수를 보여주는 페이지
+
+    // 버튼 클릭한 횟수를 저장할 변수
+    let counter = 0;
+
+    // 버튼 변수
+    const button = document.getElementById("btn");
+
+    const span = document.querySelector("span");
+
+    // 버튼에 적용할 이벤트 함수
+    function handleClick(){
+      //console.log("i have been clicked")
+      counter = counter +1; // data update
+
+      // 변경된 횟수로 출력
+      // span.innerText = counter;
+      span.innerText = `Total clicks : ${counter}`; //html update
+    }
+
+    // 버튼에 이벤트 리스너 적용
+    button.addEventListener("click", handleClick);
+  </script>
+</html>
+</html>

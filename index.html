@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <body>
-    
+    <div id="root"></div>
   </body>
   <!-- React import script -->
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js" ></script>
+  <!-- 어플리케이션이 interactive하도록 만들어주는 라이브러리 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js" ></script> 
+  <!-- React 요소들을 HTML body에 둘수있도록 하는 라이브러리 또는 패키지 -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js" ></script>
   <!-- react script를 붙여넣고 브라우저 console에서 React를 입력하면 Fragment 어쩌구 등등 출력 -->
   <script>
-    
+    // React로 작성하는 (어려운) 방법 (개발자들이 쓰는 방식은 아님)
+    // Javascript로 시작해 HTML이 된다
+    // React JS가 요소를 생성한다 = React JS가 요소를 업데이트 한다.
+    // (React JS가 결과물인 HTML을 업데이트할 수 있다)
+
+    const root = document.getElementById("root")
+
+    const span = React.createElement("span", {id:"nerd-span"}, "Hello I'm a span"); 
+    // createElement의첫번째 요소 : 생성하고자 하는 HTML 태그와 같은 이름 적어주기
+    // 두번째 요소 : span의 property
+    // 세번째 요소 : content
+
+    ReactDOM.render(span, root);  // render : React 요소를 가지고 HTML로 만들어 배치. (요소, 위치)
   </script>
 </html>
 </html>
